@@ -1,0 +1,94 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-size: 15px;
+  
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+button {
+  padding: 0;
+  margin: 0 4px;
+  height: 24px;
+  min-width: 24px;
+}
+
+mat-icon {
+  font-size: 18px;
+}
+
+td:nth-child(5) {
+  display: flex;
+  align-items: center;
+}
+
+td:nth-child(5) span {
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+
+.name{
+ background-color:  #183462;;
+}
+
+thead tr th {
+  background-color: #e76f51;
+  color: white;
+}
+
+
+td:nth-child(5) button.add {
+  background-color: blue;
+  color: white;
+}
+
+td:nth-child(5) button.remove { 
+  background-color: red;
+  color: white;
+}
+
+td:last-child button {
+  background-color: red;
+  color: white;
+}
+
+.card-title{
+  font-size: 20px;
+  font-family: 'Alegreya', serif;
+  font-weight: bold;
+}
+
+.card-subtitle{
+  font-size: 20px;
+  font-family: 'Alegreya', serif;
+}
+
+.card-text{
+  font-family: 'Lato', sans-serif;
+}
+
+.card-body
+{
+  border: 3px solid black;
+  border-radius: 10px;
+
+}
+.orderbtn{
+  background-color:#e76f51 !important;
+  color: white !important;
+}

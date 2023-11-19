@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Add Product</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <input matInput formControlName="productName" placeholder="Product Name">
+      <mat-error *ngIf="addForm.get('productName')?.hasError('required')">Product Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="supplierName" placeholder="Supplier Name">
+      <mat-error *ngIf="addForm.get('supplierName')?.hasError('required')">Supplier Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="price" placeholder="Price">
+      <mat-error *ngIf="addForm.get('price')?.hasError('required')">Price is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="quantity" placeholder="Quantity">
+      <mat-error *ngIf="addForm.get('quantity')?.hasError('required')">Quantity is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="category" placeholder="Category">
+      <mat-error *ngIf="addForm.get('category')?.hasError('required')">Category is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput formControlName="sku" placeholder="SKU">
+        <mat-error *ngIf="addForm.get('sku')?.hasError('required')">SKU is required</mat-error>
+      </mat-form-field>
+  </form>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button type="submit" class="button-add" [disabled]="addForm.invalid" (click)="onSubmit()">Add</button>
+    <button mat-raised-button mat-dialog-close class="button-cancel">Cancel</button>
+  </div>
+
+</div>

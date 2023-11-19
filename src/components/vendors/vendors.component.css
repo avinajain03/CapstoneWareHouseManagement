@@ -1,0 +1,40 @@
+.card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    padding: 10px;
+    border-bottom: none;
+    background-color:#e76f51;
+  }
+  
+  .card-title {
+    margin-bottom: 0;
+    font-size: 25px;
+    color:  white;
+    font-weight: bold;
+    font-family: 'Alegreya', serif;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-text {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+  
+  .card-text strong {
+    font-weight: 700;
+  }
+
+  .details{
+    font-size: 25px;
+    font-weight: 580;
+    margin-left: 570px;
+    margin-bottom: 40px;
+  }

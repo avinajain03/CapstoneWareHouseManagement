@@ -1,0 +1,26 @@
+
+<nav>
+  <div class="logo">
+    <a >THE LOGITICIANS</a>
+  </div>
+  
+  <ul>
+    <li *ngIf="isLoggedIn && isAdmin"><a class="sidebar-link" routerLink="/dashboard" active>Dashboard</a></li>
+    <li *ngIf="isLoggedIn && isAdmin"><a class="sidebar-link" routerLink="/inventory">Inventory</a></li>
+  
+    
+    <li *ngIf="isLoggedIn && isAdmin"><a class="sidebar-link" routerLink="/employees">Employees</a></li>
+    <li *ngIf="isLoggedIn && isAdmin"><a class="sidebar-link" routerLink="/suppliers">Suppliers</a></li>
+    <li *ngIf="isLoggedIn && isAdmin"><a class="sidebar-link" routerLink="/vendors">Vendors</a></li>
+    <li *ngIf="isLoggedIn && isAdmin"><a class="sidebar-link" routerLink="/totalOrder">Vendor Orders</a></li>
+    <li *ngIf="isLoggedIn && isVendor"><a class="sidebar-link" routerLink="/products">Products</a></li>
+    <li *ngIf="isLoggedIn && isVendor"><a class="sidebar-link" routerLink="/orders">Orders</a></li>
+
+    <li *ngIf="isLoggedIn && isSupplier"><a class="sidebar-link" routerLink="/supplierProducts">Your Products</a></li>
+
+    <li *ngIf="isLoggedIn && isStaff"><a class="sidebar-link" routerLink="/staffInventory">Inventory</a></li>
+    
+    <li class="signout" *ngIf="isLoggedIn"><a class="sidebar-link" routerLink="/login">Sign Out</a></li>
+    
+  </ul>
+</nav>

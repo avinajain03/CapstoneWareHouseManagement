@@ -1,0 +1,54 @@
+<table class="table table-striped">
+  <thead>
+    <tr class="heading">
+      <th>Product Name</th>
+      <th>Supplier Name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of vendorOrders.data">
+      <td>{{ order.productName }}</td>
+      <td>{{ order.supplierName }}</td>
+      <td>{{ order.category }}</td>
+      <td>{{ order.price | currency }}</td>
+      <td>
+        <button mat-icon-button (click)="decreaseQuantity(order)" [disabled]="order.productQuantity === 1">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <span>{{ order.productQuantity }}</span>
+        <button mat-icon-button (click)="increaseQuantity(order)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </td>
+      <td>{{ updateOrderPrice(order) | currency }}</td>
+      <td>
+        <button mat-icon-button (click)="deleteOrder(order)" class="orderbtn">
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-4 order-md-2">
+    <div class="card float-md-right" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Order Summary</h5>
+        <hr>
+        <p class="card-text">Total of all products: {{ getTotalSubtotal() | currency }}</p>
+        <hr>
+        <p class="card-text">Shipping charge: $255.00</p>
+        <hr>
+        <h5 class="card-subtitle mb-2">Grand Total: {{ getTotalGrand() | currency }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

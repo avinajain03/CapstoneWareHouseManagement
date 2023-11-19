@@ -1,0 +1,28 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  .table th {
+    font-weight: bold;
+    background-color: #e76f51;
+    font-family: 'Alegreya', serif;
+    color: #fff;
+  }
+  .table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  .table-striped tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+  }
+  .table-hover tbody tr:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+  }

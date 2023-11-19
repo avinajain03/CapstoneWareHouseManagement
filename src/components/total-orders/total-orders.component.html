@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+      <tr class="heading">
+        <th>Vendor Id</th>
+        <th>Product Name</th>
+        <th>Supplier Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of vendorOrders.data">
+        <td>6554bc6df6a138382a454a67</td>
+        <td>{{ order.productName }}</td>
+        <td>{{ order.supplierName }}</td>
+        <td>{{ order.category }}</td>
+        <td>{{ order.price | currency }}</td>
+        <td>{{ order.productQuantity }}</td>
+        <td>{{ order.subTotal | currency }}</td>
+      </tr>
+    </tbody>
+  </table>

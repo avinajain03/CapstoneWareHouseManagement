@@ -1,0 +1,26 @@
+
+<button mat-raised-button class="buttonInventory" (click)="openDialog()">Add Product</button>
+<div class="row">
+    <div *ngFor="let inventory of paginatedRows" class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-title">{{ inventory.productName}}</span>
+          <p class="card-text">
+
+            <strong>Quantity:</strong> {{ inventory.quantity }}<br>
+            <strong>Price:</strong> {{ inventory.price | currency }}<br>
+            <strong>Category:</strong> {{ inventory.category }}<br>
+            <strong>Supplier Name:</strong> {{ inventory.supplierName }}<br>
+            <strong>SKU:</strong> {{ inventory.sku }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <mat-paginator [pageSizeOptions]="[6, 12, 18,20]" [pageSize]="itemsPerPage" [pageIndex]="currentPage - 1"
+  [length]="totalRows" (page)="handlePageEvent($event)" showFirstLastButtons="true">
+  </mat-paginator>
+  
+  

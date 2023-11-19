@@ -1,0 +1,43 @@
+<section class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="card">
+
+    <div class="card-body">
+
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="/assets/img/new/login.png" class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-6">
+
+          <form class="login-form" [formGroup]="loginForm" *ngIf="loginForm">
+
+            <div class="form-group mb-3">
+              <label for="email" class="form-label">Email: </label>
+              <input type="email" id="email" name="email" class="form-control" formControlName="email">
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="password" class="form-label">Password:</label>
+              <input type="password" id="password" name="password" class="form-control password-input"
+                formControlName="password">
+            </div>
+
+            <div class="form-group mb-0">
+              <button type="button" class="btn btn-primary form-submit-button" (click)="login()"
+                [disabled]="loginForm?.invalid" [ngClass]="{'disabled-btn': loginForm?.invalid}">Login</button>
+            </div>
+
+          </form>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?</p>
+            <p class="link-danger" (click)="routeToRegisterPage()">Register</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

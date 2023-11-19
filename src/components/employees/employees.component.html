@@ -1,0 +1,27 @@
+
+<button class="my-button" type="button" (click)="openDialog()">Add Staff</button>
+
+<div class="my-table-container">
+    <table class="my-table">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Contact</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeesDisplayed.data">
+                <td>{{ employee.userId }}</td>
+                <td>{{ employee.userName }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.password }}</td>
+                <td>{{ employee.contact }}</td>
+                <td>{{ employee.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,18 @@
+<div class="row">
+  <div *ngFor="let product  of supplierProducts" class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-title">{{ product.productName}}</span>
+        <p class="card-text">
+          <img src="/assets/img/inventory.avif" class="img-fluid" alt="img"><br>
+          <strong>Product ID:</strong> {{ product.productId }}<br>
+          <strong>Quantity:</strong> {{ product.quantity }}<br>
+          <strong>Price:</strong> {{ product.price | currency }}<br>
+          <strong>Category:</strong> {{ product.category }}<br>
+          <strong>SKU:</strong> {{ product.sku }}
+        </p>
+        <button class="add-to-cart-btn" [disabled]="product.quantity > 5" (click)="restockProduct(product)">Restock</button>
+      </div>
+    </div>
+  </div>
+</div>

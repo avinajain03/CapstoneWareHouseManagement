@@ -1,0 +1,80 @@
+nav {
+    background-color: #e76f51;
+    /* background-color: #778da9; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 90px;
+  }
+  .sidebar-link{
+    background-color: #e76f51 !important;
+    color: white !important;
+    
+  }
+  
+  .logo a {
+    display: block;
+    font-size: 35px;
+    font-weight:normal;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-family: 'Alegreya', serif;
+    /* background: url(logo.png) no-repeat left center; */
+    background-size: contain;
+  }
+  
+  /* .logo a:hover {
+    color: #f1f1f1;
+  }
+   */
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  nav li {
+    margin-left: 10px;
+    font-size: 17px;
+  }
+  .nav-active, nav li:hover { background-color: #e3e3e3; }
+
+  nav li a {
+    display: block;
+    color: white;
+
+    text-align: center;
+    padding: 14px 12px;
+    text-decoration: underline;
+  }
+
+  nav li a {
+    display: block !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 14px 12px !important;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out !important; /* Add a transition effect to smooth out the hover effect */
+  }
+    
+  nav li a:hover {
+    font-weight: 500 !important;
+  }
+  
+  .signout {
+    margin-left: auto;
+  }
+
+  .sidebar-link {
+    color:white;
+    transition: background 0.2s ease-in-out;
+    /* background: #ADB5BD; */
+  }
+
+  /* .sidebar-link:hover {
+    background: #150F96;
+  } */

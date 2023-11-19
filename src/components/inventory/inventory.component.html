@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" (ngModelChange)="searchInventory()"
+      placeholder="Search by product or supplier name" name="search" aria-label="Search">
+  </div>
+  <div class="col-md-6 mb-3">
+    <button class="btn btn btn-outline-primary float-end" (click)="showFilter()"> <i
+        class="fas fa-filter align-middle"></i> <span class="align-middle"></span></button>
+    <div *ngIf="showFilters">
+      <div class="form-check" *ngFor="let category of categories">
+        <input class="form-check-input" type="checkbox" [id]="category" [checked]="categoriesChecked.includes(category)"
+          (change)="onCheckboxChange($event)">
+        <label class="form-check-label" [for]="category">{{ category }}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div *ngFor="let inventory of paginatedRows" class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <span class="card-title">{{ inventory.productName}}</span>
+        <p class="card-text">
+          <img src="/assets/img/inventory.avif" class="img-fluid" alt="img"><br>
+          <strong>Product ID:</strong> {{ inventory.productId }}<br>
+          <strong>Quantity:</strong> {{ inventory.quantity }}<br>
+          <strong>Price:</strong> {{ inventory.price | currency }}<br>
+          <strong>Category:</strong> {{ inventory.category }}<br>
+          <strong>Supplier Name:</strong> {{ inventory.supplierName }}<br>
+          <strong>SKU:</strong> {{ inventory.sku }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<mat-paginator [pageSizeOptions]="[6, 12, 18,20]" [pageSize]="itemsPerPage" [pageIndex]="currentPage - 1"
+[length]="totalRows" (page)="handlePageEvent($event)" showFirstLastButtons="true">
+</mat-paginator>
+

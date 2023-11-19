@@ -1,0 +1,24 @@
+
+<div class="card-container">
+  <div class="card" *ngFor="let row of productsDisplayed.slice(currentPage * pageSize, (currentPage + 1) * pageSize)">
+    <p-card>
+      <ng-template pTemplate="title">
+        <span class="new">{{ row.productName }}</span>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <ul class="items">
+          <!-- <li><strong>Product ID:</strong> {{ row.productId }}</li> -->
+          <li><strong>Price:</strong> {{ row.price }}</li>
+          <li><strong>Category:</strong> {{ row.category }}</li>
+          <li><strong>Supplier Name:</strong>{{row. supplierName}}</li>
+        </ul>
+        <button class="add-to-cart-btn" (click)="addToCart(row)">Add to cart</button>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+<div class="paginator-container">
+  <mat-paginator [length]="totalRecords" [pageSize]="pageSize" [pageIndex]="currentPage"
+                 [pageSizeOptions]="[8,16, 20]" (page)="onPageChange($event)" showFirstLastButtons="true">
+  </mat-paginator>
+</div>
