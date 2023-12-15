@@ -18,19 +18,22 @@ public class InventoryService {
 	@Autowired 
 	InventoryRepository inventoryRepo;
 	
-	public String saveInventory(Inventory inventory) {
-		inventoryRepo.save(inventory);
-		return "Product Added Successfully";
+	public Inventory saveInventory(Inventory inventory) {
+		return inventoryRepo.save(inventory);	
 	}
 	
 	public List<Inventory> getAllProducts(){
         return inventoryRepo.findAll();	
     }
 	
-	public String saveAllProducts(List<Inventory> inventories) {
-        inventoryRepo.saveAll(inventories);
-        return "Products Added";
+	public List<Inventory> saveAllProducts(List<Inventory> inventories) {
+		return inventoryRepo.saveAll(inventories);
+        
     }
+	
+	 public List<Inventory> getSupplierProducts(String supplierName) {
+		 return inventoryRepo.findBySupplierName(supplierName);	 
+	 }
 	
 	public List<InventoryDTO> getAllInventory() {
         List<Inventory> inventoryList = inventoryRepo.findAll();
@@ -47,6 +50,7 @@ public class InventoryService {
         return inventoryDTOList;
     }
 	
+
 	
 	
 

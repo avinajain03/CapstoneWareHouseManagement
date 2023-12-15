@@ -21,6 +21,22 @@ public class VendorOrder {
 	
 //	private Date vendorOrderDate;
 	
+	public VendorOrder(String vendorOrderId, String productId, String productName, String supplierName, double price,
+			int productQuantity, String category) {
+		super();
+		this.vendorOrderId = vendorOrderId;
+		this.productId = productId;
+		this.productName = productName;
+		this.supplierName = supplierName;
+		this.price = price;
+		this.productQuantity = productQuantity;
+		this.category = category;
+	}
+	
+	public VendorOrder() {
+		
+	}
+	
 	
 	public String getCategory() {
 		return category;

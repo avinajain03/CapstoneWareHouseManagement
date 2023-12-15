@@ -39,36 +39,17 @@ public class VendorOrderController {
 	
     @PostMapping("/addToCart")
     public ResponseEntity<VendorOrder> addToCart(@RequestBody Inventory product) {
-    	VendorOrder order = new VendorOrder();
-	    order.setProductId(product.getProductId());
-	    order.setProductName(product.getProductName());
-	    order.setSupplierName(product.getSupplierName());
-	    order.setPrice(product.getPrice());
-	    order.setCategory(product.getCategory());
-	    order.setProductQuantity(1);
-	    VendorOrder savedOrder = vendorOrderRepo.save(order);
-	    
-	 // Update inventory
-	    Inventory updatedProduct = inventoryRepo.findByProductId(product.getProductId()); // Get the product from inventory
-	    updatedProduct.setQuantity(updatedProduct.getQuantity() - 1); // Reduce the quantity by 1
-	    inventoryRepo.save(updatedProduct); // Save the updated product to inventory
-	    
-	    return new ResponseEntity<>(savedOrder, HttpStatus.OK);
+    	return vendorOrderService.addToCart(product);
     }
-	
-	
 	
 	@GetMapping("/getAllOrders")
     public ResponseEntity<List<VendorOrder>> getAllOrders() {
-        List<VendorOrder> orders = vendorOrderRepo.findAll();
-        return new ResponseEntity<>(orders, HttpStatus.OK);
+        return vendorOrderService.getAllOrders();
     }
-	
 	
 	@DeleteMapping("delete/{vendorOrderId}")
     public ResponseEntity<String> deleteOrderById(@PathVariable String vendorOrderId) {
-        vendorOrderService.deleteByVendorOrderId(vendorOrderId);
-        return new ResponseEntity<>("Order with ID " + vendorOrderId + " deleted successfully.", HttpStatus.OK);
+        return vendorOrderService.deleteByVendorOrderId(vendorOrderId);
     }
 	
 	@PutMapping("/updateVendorOrder/{vendorOrderId}")

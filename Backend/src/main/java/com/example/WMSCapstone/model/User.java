@@ -14,6 +14,20 @@ public class User {
 	private String contact;
 	private String role;
 	
+	public User(String userId, String userName, String email, String password, String contact, String role) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.contact = contact;
+		this.role = role;
+	}
+	
+	public User() {
+		
+	}
+	
 	public String getUserId() {
 		return userId;
 	}

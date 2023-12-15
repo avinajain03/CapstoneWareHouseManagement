@@ -8,6 +8,18 @@ public class SignUpRequestDTO {
     private String contact;
     private String role;
     
+    
+	public SignUpRequestDTO(String userName, String email, String password, String contact, String role) {
+		super();
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.contact = contact;
+		this.role = role;
+	}
+	public SignUpRequestDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getUserName() {
 		return userName;
 	}

@@ -30,10 +30,10 @@ public class InventoryController {
 	@Autowired
 	InventoryRepository inventoryRepo;
 	
-	@PostMapping("/inventory")
-	public String createInventory(@RequestBody Inventory inventory) {
-		return inventoryService.saveInventory(inventory);
-	}
+//	@PostMapping("/inventory")
+//	public Inventory createInventory(@RequestBody Inventory inventory) {
+//		return inventoryService.saveInventory(inventory);
+//	}
 	
 	@GetMapping("/inventory")
 	public List<Inventory> getAllProducts(){
@@ -41,7 +41,7 @@ public class InventoryController {
 	}
 	
 	@PostMapping("/allproducts")
-	public String saveAllProducts(@RequestBody List<Inventory> inventories) {
+	public List<Inventory> saveAllProducts(@RequestBody List<Inventory> inventories) {
         return inventoryService.saveAllProducts(inventories);
        
     }
@@ -53,31 +53,26 @@ public class InventoryController {
     }
 	
 
-	   @GetMapping("/inventory/supplierProducts/{supplierName}")
-	   public List<Inventory> getSupplierProducts(@PathVariable String supplierName) {
-	      return inventoryRepo.findBySupplierName(supplierName);
-	   }
+   @GetMapping("/inventory/supplierProducts/{supplierName}")
+   public List<Inventory> getSupplierProducts(@PathVariable String supplierName) {
+      return inventoryService.getSupplierProducts(supplierName);
+   }
 	   
-	   @PostMapping("/inventory/{productId}/{quantity}")
-	   public ResponseEntity<Inventory> updateProductQuantity(@PathVariable String productId, @PathVariable int quantity) {
-	       Optional<Inventory> inventoryData = inventoryRepo.findById(productId);
-	       if (inventoryData.isPresent()) {
-	           Inventory inventory = inventoryData.get();
-	           inventory.setQuantity(quantity);
-	           return new ResponseEntity<>(inventoryRepo.save(inventory), HttpStatus.OK);
-	       } else {
-	           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	       }
-	   }
+   @PostMapping("/inventory/{productId}/{quantity}")
+   public ResponseEntity<Inventory> updateProductQuantity(@PathVariable String productId, @PathVariable int quantity) {
+       Optional<Inventory> inventoryData = inventoryRepo.findById(productId);
+       if (inventoryData.isPresent()) {
+           Inventory inventory = inventoryData.get();
+           inventory.setQuantity(quantity);
+           return new ResponseEntity<>(inventoryRepo.save(inventory), HttpStatus.OK);
+       } else {
+           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+       }
+   }
 	   
-	   @PostMapping("/addInventory")
-	   public String saveInventory(@RequestBody Inventory inventory) {
-		   inventoryService.saveInventory(inventory);
-		    return "Inventory Added";
-	   }
-		
-	
-	
-	 
-
+   @PostMapping("/addInventory")
+   public Inventory saveInventory(@RequestBody Inventory inventory) {
+	   return inventoryService.saveInventory(inventory);
+	    
+   }
 }

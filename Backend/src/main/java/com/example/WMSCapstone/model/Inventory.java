@@ -4,8 +4,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @Document(collection = "inventory" )
+@NoArgsConstructor
+@Builder
 public class Inventory {
 	
 	@Id
@@ -17,6 +22,20 @@ public class Inventory {
 	private String supplierName;
 	private String sku;
 	
+	
+	public Inventory(String productId, String productName, int quantity, double price, String category,
+			String supplierName, String sku) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.quantity = quantity;
+		this.price = price;
+		this.category = category;
+		this.supplierName = supplierName;
+		this.sku = sku;
+	}
+	public Inventory() {
+	}
 	
 	public String getProductId() {
 		return productId;

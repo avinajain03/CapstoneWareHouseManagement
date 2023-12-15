@@ -12,6 +12,5 @@ public interface InventoryRepository extends MongoRepository<Inventory, String>{
 	
 	Inventory findByProductId(String productId);
 	List<Inventory> findBySupplierName(String supplierName);
-	
 
 }

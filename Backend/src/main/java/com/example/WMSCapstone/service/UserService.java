@@ -19,14 +19,14 @@ public class UserService {
         return userRepo.findAll();	
     }
 	
-	public String saveAllUsers(List<User> users) {
-        userRepo.saveAll(users);
-        return "Users Added";
+	public List<User> saveAllUsers(List<User> users) {
+        return userRepo.saveAll(users);
+        
     }
 	
-	public String saveUser(User user) {
-	    userRepo.save(user);
-	    return "User Added";
+	public User saveUser(User user) {
+	    return userRepo.save(user);
+	    
 	}
 
 	public List<User> getUsersByRole(String role) {
@@ -38,8 +38,13 @@ public class UserService {
     }
 	
 
-	public List<User> findById(String userId) {
+	public User findById(String userId) {
 	    return userRepo.findByUserId(userId);
+	}
+	
+	public String findSupplierName(String userId) {
+		User user = userRepo.findById(userId).orElse(null);
+	       return user.getUserName();
 	}
 
 	

@@ -1,5 +1,7 @@
 package com.example.WMSCapstone.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +20,28 @@ public class VendorOrderService {
 	
 	@Autowired
 	InventoryRepository inventoryRepo;
+	
+	public ResponseEntity<VendorOrder> addToCart(Inventory product){
+		VendorOrder order = new VendorOrder();
+	    order.setProductId(product.getProductId());
+	    order.setProductName(product.getProductName());
+	    order.setSupplierName(product.getSupplierName());
+	    order.setPrice(product.getPrice());
+	    order.setCategory(product.getCategory());
+	    order.setProductQuantity(1);
+	    VendorOrder savedOrder = vendorOrderRepo.save(order);
+	    
+	 // Update inventory
+	    Inventory updatedProduct = inventoryRepo.findByProductId(product.getProductId()); // Get the product from inventory
+	    updatedProduct.setQuantity(updatedProduct.getQuantity() - 1); // Reduce the quantity by 1
+	    inventoryRepo.save(updatedProduct); // Save the updated product to inventory
+	    
+	    return new ResponseEntity<>(savedOrder, HttpStatus.OK);
+	}
 
-    public void deleteByVendorOrderId(String vendorOrderId) {
+    public ResponseEntity<String> deleteByVendorOrderId(String vendorOrderId) {
         vendorOrderRepo.deleteByVendorOrderId(vendorOrderId);
+        return new ResponseEntity<>("Order with ID " + vendorOrderId + " deleted successfully.", HttpStatus.OK);
     }
 	
     public String updateVendorOrder(String vendorOrderId, VendorOrder updatedOrder) {
@@ -38,6 +59,11 @@ public class VendorOrderService {
     	} catch(Exception exc) {
     		return "Unsuccessful" + exc + HttpStatus.INTERNAL_SERVER_ERROR;
     	}
+    }
+    
+    public ResponseEntity<List<VendorOrder>> getAllOrders() {
+    	List<VendorOrder> orders = vendorOrderRepo.findAll();
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     public ResponseEntity<String> updateInventory(String productId, int quantity) {

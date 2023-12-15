@@ -36,16 +36,14 @@ public class UserController {
 	}
 	
 	@PostMapping("/allusers")
-	public String saveAllUsers(@RequestBody List<User> users) {
+	public List<User> saveAllUsers(@RequestBody List<User> users) {
         return userService.saveAllUsers(users);
        
     }
 	@PostMapping("/users/staff")
-	  public String saveStaff(@RequestBody User staff) {
-//	    staff.setRole("staff"); // set the role to 'staff'
-	    userService.saveUser(staff);
-	    return "Staff Added";
-	  }
+	public User saveStaff(@RequestBody User staff) {
+		return userService.saveUser(staff);	
+    }
 
 	
 	@GetMapping("/users/role/{role}")
@@ -55,7 +53,6 @@ public class UserController {
 	
 	@PostMapping("/signup")
     public String signup(@RequestBody SignUpRequestDTO request) {
-        // verify that the role is "vendor"
         if (!request.getRole().equals("vendor")) {
             return "User role must be 'vendor'";
         }
@@ -85,15 +82,13 @@ public class UserController {
     }
     
     @GetMapping("/users/{userId}")
-    public List<User> getUserById(@PathVariable String userId) {
-
+    public User getUserById(@PathVariable String userId) {
     	return userService.findById(userId);
     }
   
     @GetMapping("/users/supplierName/{userId}")
     public String getSupplierName(@PathVariable String userId) {
-       User user = userRepo.findById(userId).orElse(null);
-       return user.getUserName();
+    	return userService.findSupplierName(userId);
     }
     
 }

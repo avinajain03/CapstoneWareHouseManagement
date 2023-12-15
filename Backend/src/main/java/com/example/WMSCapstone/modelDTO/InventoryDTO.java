@@ -10,8 +10,17 @@ public class InventoryDTO {
 	private String supplierName;
 	
 	
-
-
+	public InventoryDTO(String productId, String productName, double price, String category, String supplierName) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.price = price;
+		this.category = category;
+		this.supplierName = supplierName;
+	}
+	public InventoryDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getProductId() {
 		return productId;
 	}
