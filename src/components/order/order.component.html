@@ -10,8 +10,8 @@
       <th>Actions</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let order of vendorOrders.data">
+  <tbody *ngIf="vendorOrders">
+    <tr *ngFor="let order of vendorOrders">
       <td>{{ order.productName }}</td>
       <td>{{ order.supplierName }}</td>
       <td>{{ order.category }}</td>

@@ -1,5 +1,5 @@
 export interface vendorOrder{
-    vendorOrderId: String;
+    vendorOrderId?: String;
     productId: String;
     productName: String;
     supplierName: String;

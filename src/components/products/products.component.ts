@@ -39,11 +39,8 @@ export class ProductsComponent implements OnInit{
     this.currentPage = event.pageIndex;
   }
 
-  
-
   addToCart(product: inventoryDTO): void {
     this.apiService.addToCart(product).subscribe(data => {
-      // Perform any logic related to adding product to cart
       alert('Product added to cart!');
     });
   }

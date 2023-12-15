@@ -88,16 +88,6 @@ export class ApiServiceService {
     return abc;
   }
 
-  fetchSupplierDetails(): Observable<users[]> {
-    const userId = this.userService.getUser();
-    console.log('Supplier details id', userId);
-
-    const url = `http://localhost:8080/users/${userId}`;
-    console.log('type', typeof (this.http.get<users[]>(url, this.httpOptions)));
-
-    return this.http.get<users[]>(url, this.httpOptions);
-  }
-
   fetchSupplierName(): Observable<string> {
     const url = `http://localhost:8080/users/supplierName/${this.userService.getUser()}`;
     return this.http.get<string>(url, this.httpOptions);

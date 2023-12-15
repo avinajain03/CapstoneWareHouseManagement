@@ -21,7 +21,6 @@ export class AddInventoryComponent implements OnInit{
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
-      //productId: ['', Validators.required],
       productName: ['', Validators.required],
       supplierName: ['', Validators.required],
       price: ['', Validators.required],

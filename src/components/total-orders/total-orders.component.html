@@ -10,7 +10,7 @@
         <th>Subtotal</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="vendorOrders?.data">
       <tr *ngFor="let order of vendorOrders.data">
         <td>6554bc6df6a138382a454a67</td>
         <td>{{ order.productName }}</td>

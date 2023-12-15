@@ -26,13 +26,12 @@ export class SignupComponent implements OnInit {
       email: this.email,
       password: this.password,
       contact: this.contact,
-      role: 'vendor' // assuming all signups are for vendor role
+      role: 'vendor'
     };
 
-    this.http.post('http://localhost:8080/signup', requestBody)
-      .subscribe((response: any) => {
-        this.router.navigate(['/login']);
-      });
+    this.http.post('http://localhost:8080/signup', requestBody).subscribe((response: any) => {
+      this.router.navigate(['/login']);
+    });
   }
 
 }

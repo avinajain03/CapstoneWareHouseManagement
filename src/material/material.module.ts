@@ -9,7 +9,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -23,7 +23,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSortModule,
     MatSnackBarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
 
   ],
   exports: [
@@ -35,7 +36,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSortModule,
     MatSnackBarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
 
   ]
 

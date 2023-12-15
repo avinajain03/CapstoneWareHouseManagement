@@ -13,7 +13,8 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 })
 export class OrderComponent implements OnInit {
 
-  vendorOrders!: MatTableDataSource<vendorOrder>;
+  // vendorOrders!: MatTableDataSource<vendorOrder>;
+  vendorOrders: vendorOrder[] = [];
   displayedColumns: string[] = ['vendorOrderId', 'productId', 'productName', 'category', 'supplierName', 'price', 'productQuantity', 'increaseQuantity', 'decreaseQuantity', 'actions'];
   totalRecords = 0;
   pageSize = 10;
@@ -34,9 +35,8 @@ export class OrderComponent implements OnInit {
       data.forEach(order => {
         order.subTotal = order.price;
       });
-      this.vendorOrders = new MatTableDataSource<vendorOrder>(data);
+      this.vendorOrders = data;
       this.totalRecords = data.length;
-      this.vendorOrders.paginator = this.paginator;
     });
   }
 
@@ -100,7 +100,7 @@ export class OrderComponent implements OnInit {
 
   getTotalSubtotal(): number {
     let totalSubtotal = 0;
-    this.vendorOrders.data.forEach(order => {
+    this.vendorOrders.forEach(order => {
       totalSubtotal += order.subTotal;
     });
     return totalSubtotal;

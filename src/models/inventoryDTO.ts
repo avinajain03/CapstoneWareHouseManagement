@@ -1,5 +1,5 @@
 export interface inventoryDTO{
-    productId: String;
+    productId?: String;
     productName: String;
     price:number;
     category: String;

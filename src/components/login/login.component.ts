@@ -1,5 +1,3 @@
-
-
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -18,18 +16,18 @@ export class LoginComponent implements OnInit {
   httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'text/plain, */*',
-      'Content-Type': 'application/json' 
+      'Content-Type': 'application/json'
     }),
-    responseType: 'text' as 'json'  
+    responseType: 'text' as 'json'
   };
 
   constructor(private http: HttpClient, private router: Router, private userService: UserService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-      this.loginForm = this.fb.group({
-        email: this.fb.control(null, [Validators.required]),
-        password: this.fb.control(null, [Validators.required])
-      });
+    this.loginForm = this.fb.group({
+      email: this.fb.control(null, [Validators.required]),
+      password: this.fb.control(null, [Validators.required])
+    });
 
   }
 
@@ -48,29 +46,18 @@ export class LoginComponent implements OnInit {
 
         const user = JSON.parse(response);
         console.log(user);
-        
+
         this.userService.setUser(user.userId);
         this.userService.setUserRole(user.role);
         this.userService.setLoggedIn(true);
 
 
-        this.loggedIn.emit(true); 
+        this.loggedIn.emit(true);
         this.router.navigate(['/home']);
         alert("Login success");
       }, (error: any) => {
         alert("Login failed. Please try again.");
       });
-  }
-
-  showHidePassword() {
-    let password = document.getElementById("password") as HTMLInputElement;
-    if (password.type === "password") {
-      password.type = "text";
-      password.classList.add("hide-password");
-    } else {
-      password.type = "password";
-      password.classList.remove("hide-password");
-    }
   }
 
   routeToRegisterPage(): void {

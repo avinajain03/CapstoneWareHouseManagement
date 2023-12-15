@@ -24,7 +24,7 @@ export class TotalOrdersComponent {
     this.apiService.getAllOrders().subscribe(data => {
       console.log(data);
       data.forEach(order => {
-        order.subTotal = order.price * order.productQuantity; // calculate the subtotal based on the price and quantity
+        order.subTotal = this.updateOrderPrice(order);
       });
       this.vendorOrders = new MatTableDataSource<vendorOrder>(data);
     });

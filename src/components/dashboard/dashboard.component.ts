@@ -10,15 +10,15 @@ export class DashboardComponent {
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [
-      'food',
-      'personal care',
-      'household',
-      'beverages'
+      'Thoughtbridge',
+      'Mydeo',
+      'Skinix',
+      'Divanoodle'
     ],
     datasets: [
       {
         data: [ 345, 150, 278, 247],
-        label: 'Category Vs Quantity',
+        label: 'Supplier Vs Quantity',
         fill: true,
         tension: 0.75,
         borderColor: 'black',

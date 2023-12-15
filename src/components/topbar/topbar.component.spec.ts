@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopbarComponent } from './topbar.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('TopbarComponent', () => {
   let component: TopbarComponent;
@@ -8,7 +9,8 @@ describe('TopbarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TopbarComponent]
+      declarations: [TopbarComponent],
+      providers: [HttpClient, HttpHandler]
     });
     fixture = TestBed.createComponent(TopbarComponent);
     component = fixture.componentInstance;

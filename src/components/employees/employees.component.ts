@@ -23,9 +23,7 @@ export class EmployeesComponent implements OnInit{
 
   constructor(private apiService: ApiServiceService, public dialog: MatDialog){
     this.employeesDisplayed = new MatTableDataSource<users>([]);
-    this.paginator = this.paginator;
-
-    
+    this.paginator = this.paginator;   
   }
 
   ngOnInit(): void {

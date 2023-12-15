@@ -13,30 +13,6 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 })
 export class StaffInventoryComponent implements OnInit{
 
-  // inventoryList: inventory[] = [];
-
-  // constructor(private apiService: ApiServiceService, private dialog: MatDialog) { }
-
-  // ngOnInit(): void {
-  //   this.apiService.fetchInventoryData().subscribe(data => {
-  //     this.inventoryList = data;
-  //     console.log(this.inventoryList);
-  //   });
-  // }
-
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(AddInventoryComponent, {
-  //     width: '600px'
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.apiService.fetchInventoryData().subscribe(data => {
-  //       this.inventoryList = data;
-  //       console.log(this.inventoryList);
-  //     });
-  //   });
-  // }
 
   displayedColumns: string[] = ['productId', 'productName', 'quantity', 'price', 'category', 'supplierName', 'sku','imgUrl'];
   inventoryDisplayed: MatTableDataSource<inventory> = new MatTableDataSource<inventory>();
@@ -45,7 +21,7 @@ export class StaffInventoryComponent implements OnInit{
   itemsPerPage = 6;
   originalData: inventory[] = [];
 
-  constructor(private apiService: ApiServiceService, private dialog:MatDialog) { }
+  constructor(private apiService: ApiServiceService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.apiService.fetchInventoryData().subscribe(data => {
